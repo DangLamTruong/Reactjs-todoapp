@@ -1,4 +1,6 @@
 import React from "react";
+import NewComponent from "./components/NewComponent";
+
 
 const styleTitle = {color: 'red',fontSize: 20,}
 
