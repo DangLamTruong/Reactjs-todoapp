@@ -1,0 +1,53 @@
+{
+  "todoItems": [
+    {
+      "id": 0,
+      "title": "Learn JSON server3",
+      "creator": "Lam Truong",
+      "description": "Learn in 1 day",
+      "status": "Doing"
+    },
+    {
+      "id": 1,
+      "title": "Learn Axios",
+      "creator": "Lam Truong",
+      "description": "Learn in 2 days",
+      "status": "Done"
+    },
+    {
+      "id": 2,
+      "title": "Learn React 2",
+      "creator": "Lam Truong",
+      "description": "Learn in a week",
+      "status": "New"
+    },
+    {
+      "id": 3,
+      "title": "Learn RestAPI",
+      "creator": "Lam Truong",
+      "description": "Learn RestAPI",
+      "status": "Doing"
+    },
+    {
+      "id": 4,
+      "title": "Learn React Basic",
+      "creator": "Lam Truong",
+      "description": "Learn in 4 weeks",
+      "status": "Done"
+    },
+    {
+      "id": 5,
+      "title": "Learn React Router",
+      "creator": "Lam Truong",
+      "description": "Learn in 3 days",
+      "status": "Doing"
+    },
+    {
+      "id": 6,
+      "title": "Learn React Context",
+      "creator": "Lam Truong",
+      "description": "Learn in 3 days",
+      "status": "New"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { ROUTE } from "../constants";
+
+const HeaderTodoApp = ({ handleCreateNewTask }) => {
+    const [keyword, setKeyword] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const handleSearchClick = () => {
+        searchParams.set('keyword', keyword.trim().toLowerCase());
+        setSearchParams(searchParams);
+        setKeyword('');
+    };
+
+    return <div className="containerHeader">
+        <div className="containerHeader__left">
+            <button onClick={handleCreateNewTask}>
+                <Link to={ROUTE.ADD_NEW} style={{color: 'white'}}>
+                    Create New Task
+                </Link>
+            </button> 
+        </div>
+        <div className="containerHeader__right">
+            <input 
+                placeholder="Type something to search"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+            />
+            <button className="btn-Search" onClick={handleSearchClick}>Search</button>
+        </div>
+    </div>
+};
+
+export default HeaderTodoApp;
