@@ -8,7 +8,7 @@ const ListTodoItems = ({ todoItems }) => {
         creator={item.creator}
         status={item.status}
         description={item.description}
-        idTask={index}
+        idTask={item.id}
       />
     ));  
 };

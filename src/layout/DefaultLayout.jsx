@@ -7,7 +7,6 @@ function DefaultLayout ({ children }) {
         <div className="layout">
             <HeaderTodoApp />
             <SidebarTodo />
-          
             <div className="containerBody">{children}</div>
         </div>
     );

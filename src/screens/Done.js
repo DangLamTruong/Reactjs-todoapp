@@ -6,6 +6,7 @@ import Footer from '../layout/FooterTodoComponent';
 import { ITEM_PER_PAGE, LIST_TO_DO_KEY, STATUS } from '../constants'; 
 import { localStorageUlti } from '../functions/localStorage';
 import usePagination from '../hook/usePagination'; 
+import clientServer from '../server/clientServer';
 
 const { get } = localStorageUlti(LIST_TO_DO_KEY, []); 
 
@@ -18,11 +19,18 @@ const Done = () => {
     );
 
     useEffect(() => {
-        const listTodo = get().filter((item) =>
+      clientServer
+        .get('todoItems')
+        .then((res) => {
+          const listTodoItem = res.data.filter((item) =>
             item.status === STATUS.DONE &&
             item.title.toLowerCase().includes(searchParams.get('keyword') || '')
-        );
-        setTodoItems(listTodo);
+          );
+          setTodoItems(listTodoItem);
+        })
+        .catch((err) => {
+          console.error('error:', err)
+        })
     }, [searchParams]);
 
     return (

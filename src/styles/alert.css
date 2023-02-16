@@ -46,3 +46,8 @@
     cursor: pointer; 
     background-color: white; 
 }
+
+.alert__clear:focus {
+    color: white;
+    background-color: var(--primary);
+}

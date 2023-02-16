@@ -6,6 +6,9 @@ import Footer from "../layout/FooterTodoComponent";
 import { ITEM_PER_PAGE, LIST_TO_DO_KEY } from "../constants";
 import { localStorageUlti } from "../functions/localStorage";
 import usePagination from "../hook/usePagination";
+import { observer } from "mobx-react";
+import todoStore from "../stores/todoStores";
+import clientServer from "../server/clientServer";
 
 const { get } = localStorageUlti(LIST_TO_DO_KEY, []);
 
@@ -18,10 +21,14 @@ const All = () => {
     );
 
     useEffect(() => {
-        const listTodoItems = get().filter((item) => 
-            item.title.toLowerCase().includes(searchParams.get('keyword')  || '')    
-        );
-        setToDoItems(listTodoItems);
+        clientServer
+            .get('todoItems')
+            .then((res) => {
+                const listTodoItems = res.data.filter((item) => 
+                    item.title.toLowerCase().includes(searchParams.get('keyword')  || '')    
+                );
+            setToDoItems(listTodoItems);
+        })
     }, [searchParams]);
 
     return (
@@ -38,4 +45,4 @@ const All = () => {
     );
 };
 
-export default All;
+export default observer(All);
